@@ -77,8 +77,8 @@ for(var row of data) {
 //}];
 	
 // Themes begin
+am4core.useTheme(am4themes_material);	
 am4core.useTheme(am4themes_animated);
-am4core.disposeAllCharts();	
 // Themes end
 	
 var chart = am4core.create("container", am4charts.SlicedChart);
