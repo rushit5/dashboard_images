@@ -80,17 +80,27 @@ series.colors.step = 2;
 series.dataFields.value = "value";
 series.dataFields.category = "name";
 series.alignLabels = true;
-
+	
 series.labelsContainer.paddingLeft = 15;
 series.labelsContainer.width = 200;
 
 //series.orientation = "horizontal";
 series.bottomRatio = 1;
 
+series.labels.template.adapter.add("text", slicePercent);
+
+function slicePercent(text, target) {
+  var max = target.dataItem.values.value.value - target.dataItem.values.value.startChange;
+  var percent = Math.round(target.dataItem.values.value.value / max * 100);
+  return "{category}: " + percent + "%";
+}
+	
 chart.legend = new am4charts.Legend();
 chart.legend.position = "left";
 chart.legend.valign = "bottom";
 chart.legend.margin(5,5,20,5); 	
+
+	
  
 doneRendering();
 }
