@@ -4,7 +4,7 @@ create: function(element, config) {
 	<style>
 	.sannith {
 	min-width: 310px;
-	height: 700px
+	height: 750px
 	}
 	</style>
 	`;
@@ -26,66 +26,54 @@ console.log('updateAsync() queryResponse', queryResponse)
 	
 // get the names of the first dimension and measure available in data
 
-//x  = config.query_fields.measures[0].name;     // recipients
-//y  = config.query_fields.measures[1].name;     // opens
-//z  = config.query_fields.measures[2].name;      // clicks
-a  = config.query_fields.dimensions[0].name;     // measure 
-b  = config.query_fields.dimensions[1].name;     // quantity 	
+x  = config.query_fields.measures[0].name;     // recipients
+y  = config.query_fields.measures[1].name;     // opens
+z  = config.query_fields.measures[2].name;     // clicks 	
+
 	
-var ad = [];	
+var xd = [];
 for(var row of data) {
-	var cell = row[queryResponse.fields.dimensions[0].name]
-	ad.push([{
-		"name"  : row[a].value,
-		"value" : row[b].value
-	}]);
-	}
+	var cell = row[queryResponse.fields.measures[0].name]
+	xd.push([
+		row[x].value 
+	]);
+}
+
+var yd = [];
+for(var row of data) {
+	var cell = row[queryResponse.fields.measures[1].name]
+	yd.push([
+		row[y].value 
+	]);
+}
+
+var zd = [];
+for(var row of data) {
+	var cell = row[queryResponse.fields.measures[2].name]
+	zd.push([
+		row[z].value 
+	]);
+}
 	
-//var xd = [];
-//for(var row of data) {
-//	var cell = row[queryResponse.fields.measures[0].name]
-//	xd.push([
-//		row[x].value 
-//	]);
-//}
-
-//var yd = [];
-//for(var row of data) {
-//	var cell = row[queryResponse.fields.measures[1].name]
-//	yd.push([
-//		row[y].value 
-//	]);
-//}
-
-//var zd = [];
-//for(var row of data) {
-//	var cell = row[queryResponse.fields.measures[2].name]
-//	zd.push([
-//		row[z].value 
-//	]);
-//}
- 
- //var data_1 = [{
- //   "name": "Recipients",
- //   "value": row[x].value
-//}, {
-//    "name": "Opens",
- //   "value": row[y].value
-//}, {
- //   "name": "Clicks",
- //   "value": row[z].value
-//}];
+ var data_1 = [{
+    "name": "Recipients",
+    "value": row[x].value
+}, {
+    "name": "Opens",
+    "value": row[y].value
+}, {
+    "name": "Clicks",
+    "value": row[z].value
+}];
 	
 // Themes begin
 am4core.useTheme(am4themes_material);	
 am4core.useTheme(am4themes_animated);
-am4core.options.autoDispose = true;	
 // Themes end
 	
 var chart = am4core.create("container", am4charts.SlicedChart);
 chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
-console.log(ad)
-chart.data =ad ;
+chart.data =data_1 ;
 
 var series = chart.series.push(new am4charts.FunnelSeries());
 series.colors.step = 2;
