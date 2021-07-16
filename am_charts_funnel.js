@@ -56,13 +56,13 @@ for(var row of data) {
  
  var data_1 = [{
     "name": "Recipients",
-    "value": 600
+    "value": row[x].value
 }, {
     "name": "Opens",
-    "value": 300
+    "value": row[y].value
 }, {
     "name": "Clicks",
-    "value": 200
+    "value": row[z].value
 }];
 	
 // Themes begin
