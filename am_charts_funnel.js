@@ -88,7 +88,13 @@ series.labelsContainer.width = 200;
 series.bottomRatio = 1;
 
 series.labels.template.adapter.add("text", slicePercent);
+series.tooltip.label.adapter.add("text", sliceval);
 
+
+function sliceval(text, target) {
+  var max = target.dataItem.values.value.value ;
+ return "{category}: " + max ;                                 
+                                }
 function slicePercent(text, target) {
   var max = target.dataItem.values.value.value - target.dataItem.values.value.startChange;
   var percent = Math.round(target.dataItem.values.value.value / max * 100);
