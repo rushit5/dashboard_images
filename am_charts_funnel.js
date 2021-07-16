@@ -32,13 +32,14 @@ z  = config.query_fields.measures[2].name;      // clicks
 a  = config.query_fields.dimensions[0].name;     // measure 
 b  = config.query_fields.dimensions[1].name;     // quantity 	
 	
-var ad = [];
+var ad = [];	
 for(var row of data) {
 	var cell = row[queryResponse.fields.dimensions[0].name]
 	ad.push([
-		row[x].value 
+		"name"  : row[a].value,
+		"value" : row[b].value
 	]);
-}
+	}
 	
 var xd = [];
 for(var row of data) {
@@ -81,8 +82,8 @@ am4core.useTheme(am4themes_animated);
 	
 var chart = am4core.create("container", am4charts.SlicedChart);
 chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
-
-chart.data =data_1 ;
+console.log(ad)
+chart.data =ad ;
 
 var series = chart.series.push(new am4charts.FunnelSeries());
 series.colors.step = 2;
