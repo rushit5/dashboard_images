@@ -35,10 +35,10 @@ b  = config.query_fields.dimensions[1].name;     // quantity
 var ad = [];	
 for(var row of data) {
 	var cell = row[queryResponse.fields.dimensions[0].name]
-	ad.push([
-		name  : row[a].value,
-		value : row[b].value
-	]);
+	ad.push([{
+		"name"  : row[a].value,
+		"value" : row[b].value
+	}]);
 	}
 	
 //var xd = [];
