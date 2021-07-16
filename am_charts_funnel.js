@@ -65,18 +65,14 @@ for(var row of data) {
     "value": 200
 }];
 	
-//var symbol       = row[z5].value
-//var label1  = symbol + ' Quaterly Net Margin and Gross Margin'
-console.log('Chart data 1', xd)	
-console.log('Chart data 2', yd)	
-console.log('Chart data 3', zd)	
-
 // Themes begin
 am4core.useTheme(am4themes_animated);
 // Themes end
-
+	
 var chart = am4core.create("container", am4charts.SlicedChart);
 chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+
+chart.data =data_1 ;
 
 var series = chart.series.push(new am4charts.FunnelSeries());
 series.colors.step = 2;
