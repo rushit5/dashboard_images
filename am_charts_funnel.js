@@ -33,7 +33,7 @@ z  = config.query_fields.measures[2].name;      // clicks
 var xd = [];
 for(var row of data) {
 	var cell = row[queryResponse.fields.measures[0].name]
-	xdata.push([
+	xd.push([
 		row[x].value 
 	]);
 }
@@ -41,7 +41,7 @@ for(var row of data) {
 var yd = [];
 for(var row of data) {
 	var cell = row[queryResponse.fields.measures[1].name]
-	netmargin_data.push([
+	yd.push([
 		row[y].value 
 	]);
 }
@@ -49,7 +49,7 @@ for(var row of data) {
 var zd = [];
 for(var row of data) {
 	var cell = row[queryResponse.fields.measures[2].name]
-	grossmargin_data.push([
+	zd.push([
 		row[z].value 
 	]);
 }
