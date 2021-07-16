@@ -4,7 +4,7 @@ create: function(element, config) {
 	<style>
 	.sannith {
 	min-width: 310px;
-	height: 400px
+	height: 700px
 	}
 	</style>
 	`;
@@ -78,6 +78,7 @@ for(var row of data) {
 	
 // Themes begin
 am4core.useTheme(am4themes_animated);
+am4core.options.autoDispose = true;	
 // Themes end
 	
 var chart = am4core.create("container", am4charts.SlicedChart);
