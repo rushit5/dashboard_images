@@ -26,9 +26,9 @@ console.log('updateAsync() queryResponse', queryResponse)
 	
 // get the names of the first dimension and measure available in data
 
-x  = config.query_fields.measures[0].name;     // recipients
-y  = config.query_fields.measures[1].name;     // opens
-z  = config.query_fields.measures[2].name;      // clicks
+//x  = config.query_fields.measures[0].name;     // recipients
+//y  = config.query_fields.measures[1].name;     // opens
+//z  = config.query_fields.measures[2].name;      // clicks
 a  = config.query_fields.dimensions[0].name;     // measure 
 b  = config.query_fields.dimensions[1].name;     // quantity 	
 	
@@ -36,45 +36,45 @@ var ad = [];
 for(var row of data) {
 	var cell = row[queryResponse.fields.dimensions[0].name]
 	ad.push([
-		"name"  : row[a].value,
-		"value" : row[b].value
+		name  : row[a].value,
+		value : row[b].value
 	]);
 	}
 	
-var xd = [];
-for(var row of data) {
-	var cell = row[queryResponse.fields.measures[0].name]
-	xd.push([
-		row[x].value 
-	]);
-}
+//var xd = [];
+//for(var row of data) {
+//	var cell = row[queryResponse.fields.measures[0].name]
+//	xd.push([
+//		row[x].value 
+//	]);
+//}
 
-var yd = [];
-for(var row of data) {
-	var cell = row[queryResponse.fields.measures[1].name]
-	yd.push([
-		row[y].value 
-	]);
-}
+//var yd = [];
+//for(var row of data) {
+//	var cell = row[queryResponse.fields.measures[1].name]
+//	yd.push([
+//		row[y].value 
+//	]);
+//}
 
-var zd = [];
-for(var row of data) {
-	var cell = row[queryResponse.fields.measures[2].name]
-	zd.push([
-		row[z].value 
-	]);
-}
+//var zd = [];
+//for(var row of data) {
+//	var cell = row[queryResponse.fields.measures[2].name]
+//	zd.push([
+//		row[z].value 
+//	]);
+//}
  
- var data_1 = [{
-    "name": "Recipients",
-    "value": row[x].value
-}, {
-    "name": "Opens",
-    "value": row[y].value
-}, {
-    "name": "Clicks",
-    "value": row[z].value
-}];
+ //var data_1 = [{
+ //   "name": "Recipients",
+ //   "value": row[x].value
+//}, {
+//    "name": "Opens",
+ //   "value": row[y].value
+//}, {
+ //   "name": "Clicks",
+ //   "value": row[z].value
+//}];
 	
 // Themes begin
 am4core.useTheme(am4themes_animated);
