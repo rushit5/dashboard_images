@@ -26,10 +26,20 @@ console.log('updateAsync() queryResponse', queryResponse)
 	
 // get the names of the first dimension and measure available in data
 
-x   = config.query_fields.measures[0].name;     // recipients
-y   = config.query_fields.measures[1].name;     // opens
+x  = config.query_fields.measures[0].name;     // recipients
+y  = config.query_fields.measures[1].name;     // opens
 z  = config.query_fields.measures[2].name;      // clicks
- 
+a  = config.query_fields.dimensions[0].name;     // measure 
+b  = config.query_fields.dimensions[1].name;     // quantity 	
+	
+var ad = [];
+for(var row of data) {
+	var cell = row[queryResponse.fields.dimensions[0].name]
+	ad.push([
+		row[x].value 
+	]);
+}
+	
 var xd = [];
 for(var row of data) {
 	var cell = row[queryResponse.fields.measures[0].name]
