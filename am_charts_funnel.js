@@ -1,13 +1,13 @@
 looker.plugins.visualizations.add({
 create: function(element, config) {
-  //element.innerHTML = `
-//	<style>
-//	.sannith {
-//	min-width: 310px;
-//	height: 750px
-//	}
-//	</style>
-//	`;
+  element.innerHTML = `
+	<style>
+	.sannith {
+	min-width: 310px;
+	height: 750px
+	}
+	</style>
+	`;
 	
     var container = element.appendChild(document.createElement("div"));
 	container.className = "sannith";
@@ -87,7 +87,7 @@ series.labelsContainer.width = 200;
 //series.orientation = "horizontal";
 series.bottomRatio = 1;
 
-series.labels.template.adapter.add("text", slicePercent);
+series.labels.template.adapter.add("text", slicelabel);
 series.tooltip.label.adapter.add("text", slicePercent);
 
 
@@ -96,6 +96,13 @@ function slicePercent(text, target) {
   var percent = Math.round(target.dataItem.values.value.value / max * 100);
   var act_val = target.dataItem.values.value.value ;
   return "{category}: " + percent + "%"+"("+act_val+")";
+}
+
+function slicelabel(text, target) {
+  var max = target.dataItem.values.value.value - target.dataItem.values.value.startChange;
+  var percent = Math.round(target.dataItem.values.value.value / max * 100);
+  var act_val = target.dataItem.values.value.value ;
+  return percent + "%"+"("+act_val+")";
 }
 	
 chart.legend = new am4charts.Legend();
